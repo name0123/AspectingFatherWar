@@ -1,11 +1,11 @@
 /mobservice/target/
 /mobservice/.settings/
-/mobservice/.classpath/
+/mobservice/.classpath
 /mobservice/.project
 
 /RuntimeDokimos/.settings/
-/RuntimeDokimos/.project/
+/RuntimeDokimos/.project
 /RuntimeDokimos/target/
-/RuntimeDokimos/.classpath/
+/RuntimeDokimos/.classpath
 .project
 /.settings/

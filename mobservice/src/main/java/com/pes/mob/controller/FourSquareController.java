@@ -55,10 +55,18 @@ public class FourSquareController {
     		@RequestParam(value="ne" , defaultValue="") String ne,
     		@RequestParam(value="limit" , defaultValue="50") String limit,
 		@RequestParam(value="categoryId" , defaultValue="4d4b7105d754a06374d81259,4d4b7104d754a06370d81259") String categories
-    		) throws IOException, JSONException {
+    		) throws IOException, JSONException, NullPointerException {
+		System.out.println(" ");
+		System.out.println("------------------------------------------------------------------------------------------------------");
+		System.out.println("-----------------------------    FOURSQUARECONTROLLER VERSION 2    -----------------------------------");
+		System.out.println("------------------------------------------------------------------------------------------------------");
+		System.out.println("--- This is the second version, the bug was eliminated");
+		System.out.println("--- Test it by making a search of a city starting with N");
+		System.out.println(" ");
+		
     	URL targetUrl = new URL(url+"search?client_id="+ClientId+"&client_secret="+ClientSecret+"&v="+v);
     	if (!ll.equals("")) targetUrl = new URL(targetUrl.toString()+"&ll="+ll);
-    	else if (!near.equals("")) targetUrl = new URL(targetUrl.toString()+"&near="+near);
+    	else if (!near.equals("")) 	targetUrl = new URL(targetUrl.toString()+"&near="+near);
     	else if (!sw.equals("") && !ne.equals("")) targetUrl = new URL(targetUrl.toString()+"&intent=browse"+"&sw="+sw+"&ne="+ne);
     	if (!query.equals("")) targetUrl = new URL(targetUrl.toString()+"&query="+query);
     	if (!radius.equals("") && sw.equals("") && ne.equals("")) targetUrl = new URL(targetUrl.toString()+"&radius="+radius);
@@ -66,7 +74,7 @@ public class FourSquareController {
     	targetUrl = new URL(targetUrl.toString()+"&limit="+limit);
     	targetUrl = new URL(targetUrl.toString()+"&categoryId="+categories);
     	//@RequestParam(value="categoryId" , defaultValue="4d4b7105d754a06374d81259,4d4b7104d754a06370d81259") String categories
-    	System.out.println(targetUrl);
+    	//System.out.println(targetUrl);
     	List<Place> result = getInfo(targetUrl);
         return result;
     }

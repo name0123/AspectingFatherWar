@@ -147,8 +147,8 @@ public class Place {
             else ++iIsNotAccess;
             if (placeValorations.get(i).isWc()) ++iIsWc;
             else ++iIsNotWc;
-            if (placeValorations.get(i).getElevator().equals("HAS")) ++iElevHas;
-            else if (placeValorations.get(i).getElevator().equals("HAS_NOT")) ++iElevHasNot;
+            if (placeValorations.get(i).getElevator().toString().equals("HAS")) ++iElevHas;
+            else if (placeValorations.get(i).getElevator().toString().equals("HAS_NOT")) ++iElevHasNot;
             else ++iElevNoNeed;
         }
         if (iIsAccess > iIsNotAccess && iIsWc > iIsNotWc && ((iElevHas > iElevHasNot && iElevHas > iElevNoNeed) || (iElevNoNeed > iElevHas && iElevHasNot <= iElevNoNeed))) adaptedLevel = AdaptedLevel.TOTAL;

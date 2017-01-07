@@ -104,6 +104,6 @@ public class YourAspect {
     public void af(JoinPoint pointcut, YourAnnotation yourAnnotationVariableName){
         //Just prints new lines after each method that's executed in
 		//System.out.println("------------------------------------------------------------------------------------------------------");
-        System.out.print(TAG);
+        System.out.println(TAG);
     }
 }

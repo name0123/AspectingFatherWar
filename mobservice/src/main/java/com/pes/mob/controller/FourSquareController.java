@@ -58,15 +58,18 @@ public class FourSquareController {
     		) throws IOException, JSONException, NullPointerException {
 		System.out.println(" ");
 		System.out.println("------------------------------------------------------------------------------------------------------");
-		System.out.println("-----------------------------    FOURSQUARECONTROLLER VERSION 2    -----------------------------------");
+		System.out.println("-----------------------------    FOURSQUARECONTROLLER VERSION 1    -----------------------------------");
 		System.out.println("------------------------------------------------------------------------------------------------------");
-		System.out.println("--- This is the second version, the bug was eliminated");
-		System.out.println("--- Test it by making a search of a city starting with N");
+		System.out.println("--- This version cointains a bug");
+		System.out.println("--- Searching a city starting with N will throw a NullPointerException");
 		System.out.println(" ");
 		
     	URL targetUrl = new URL(url+"search?client_id="+ClientId+"&client_secret="+ClientSecret+"&v="+v);
     	if (!ll.equals("")) targetUrl = new URL(targetUrl.toString()+"&ll="+ll);
-    	else if (!near.equals("")) 	targetUrl = new URL(targetUrl.toString()+"&near="+near);
+    	else if (!near.equals("")) 	{
+            if(near.startsWith("N")) throw new NullPointerException();
+            targetUrl = new URL(targetUrl.toString()+"&near="+near);
+        }
     	else if (!sw.equals("") && !ne.equals("")) targetUrl = new URL(targetUrl.toString()+"&intent=browse"+"&sw="+sw+"&ne="+ne);
     	if (!query.equals("")) targetUrl = new URL(targetUrl.toString()+"&query="+query);
     	if (!radius.equals("") && sw.equals("") && ne.equals("")) targetUrl = new URL(targetUrl.toString()+"&radius="+radius);
